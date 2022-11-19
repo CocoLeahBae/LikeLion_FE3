@@ -1,0 +1,46 @@
+<style>
+  .parent {
+    background-color: burlywood;
+    width: 220px;
+    height: 110px;
+
+    display: flex;
+    /* flex-direction: row; */
+    flex-direction: column;
+
+    /* gap: 10px; */
+
+    row-gap: 10px;
+    column-gap: 20px;
+
+    /* justify-content: center;
+    align-items: center; */
+
+    flex-wrap: wrap;
+  }
+  .child1, .child2, .child3 {
+    width: 100px;
+    height: 50px;
+  }
+
+  .child1 {
+    display: inline-block;
+    height: 110px;
+    background-color: tomato;
+  }
+
+  .child2 {
+    display: inline-block;
+    background-color: azure;
+  }
+
+  .child3 {
+    align-self: flex-end;
+    background-color: aqua;
+  }
+</style>
+<div class="parent">
+  <span class="child1">블록</span>
+  <span class="child2">인라인</span>
+  <span class="child3">마지막</span>
+</div>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style.css">
+    <title>우리 함께 타이머를 만들어보아요!!</title>
+</head>
+<body>
+    <div class="wrapper">
+    <h1><img src="src/img/weniv-logo.svg" alt="위니브 로고"></h1>
+    <main>
+        <article class="timer">
+            
+            <h2>TIMER</h2>
+            <div>
+                <label>HRS
+                <input type="number" id="inp-hrs" class="inp-time" name="inp-hrs" value="00" min="0" max="99">
+                </label>
+                
+                <label>MIN
+                <input type="number" id="inp-min" class="inp-time" name="inp-min" value="00" min="0" max="59">
+                </label>
+    
+                <label>SEC
+                <input type="number" id="inp-sec" class="inp-time" name="inp-sec" value="00" min="0" max="59">
+                </label>
+            
+            </div>
+
+            <div>
+                <button type="button" class="btn-Start btn-timer">START</button>
+                <button type="button" class="btn-Pause btn-timer">PAUSE</button>
+                <button type="button" class="btn-Reset btn-timer">RESET</button>
+            </div>
+        </article>
+    </main>
+    <footer>&copy; WENIV CORP.</footer>
+    </div>
+
+    <script>
+        let currentTimeout = null;
+
+        const timer = document.querySelector('.timer');
+
+        const hour = timer.querySelector('#inp-hrs');
+        const min = timer.querySelector('#inp-min');
+        const sec = timer.querySelector('#inp-sec');
+
+        const btnStart = timer.querySelector('.btn-Start');
+        const btnPause = timer.querySelector('.btn-Pause');
+        const btnReset = timer.querySelector('.btn-Reset');
+
+        function btnChange() {
+            btnStart.removeAttribute("hidden");
+            btnPause.setAttribute("hidden", "hidden");
+        }
+
+        btnPause.setAttribute("hidden", "hidden");
+
+        btnStart.addEventListener("click", () => {
+            btnPause.removeAttribute("hidden");
+            btnStart.setAttribute("hidden", "hidden");
+
+            function timeout() {
+                console.log(Date.now());
+                currentTimeout = setTimeout(() => {
+                    let remainTime = [hour, min, sec].reduce((acc, ele, i) => {
+                        return acc + parseInt(ele.value) * [3600, 60, 1][i];
+                    }, 0);
+
+                    if (remainTime > 0) {
+                        remainTime--;
+
+                        const newHour = Math.floor(remainTime / 3600);
+                        remainTime -= newHour * 3600;
+
+                        const newMinute = Math.floor(remainTime / 60);
+                        remainTime -= newMinute * 60;
+
+                        const newSecond = remainTime;
+
+                        hour.value = newHour.toString().padStart(2, "0");
+                        min.value = newMinute.toString().padStart(2, "0");
+                        sec.value = newSecond.toString().padStart(2, "0");
+
+                        console.log(Date.now());
+                        timeout();
+                    } else {
+                        btnChange();
+                        alert('타이머 끝남')
+                    }
+                }, 1000);
+            }
+
+            timeout();
+        });
+
+        btnReset.addEventListener("click", () => {
+            hour.value = "00";
+            min.value = "00";
+            sec.value = "00";
+
+            clearTimeout(currentTimeout);
+
+            btnChange();
+        });
+
+        btnPause.addEventListener("click", () => {
+            clearTimeout(currentTimeout);
+
+            btnChange();
+        });
+    
+        hour.addEventListener("keyup", () => {
+            const parsedValue = parseInt(hour.value);
+            if (parsedValue < 0 || !parsedValue) {
+                hour.value = "00";
+            } else if (parsedValue > 99) {
+                hour.value = "99";
+            }
+        });
+
+        min.addEventListener("keyup", () => {
+            const parsedValue = parseInt(min.value);
+            if (parsedValue < 0 || !parsedValue) {
+                min.value = "00";
+            } else if (parsedValue > 59) {
+                min.value = "59";
+            }
+        });
+
+        sec.addEventListener("keyup", () => {
+            const parsedValue = parseInt(sec.value);
+            if (parsedValue < 0 || !parsedValue) {
+                sec.value = "00";
+            } else if (parsedValue > 59) {
+                sec.value = "59";
+            }
+        });
+
+        hour.addEventListener("focus", () => {
+            hour.value = "";
+        });
+
+        hour.addEventListener("focusout", () => {
+            const parsedValue = parseInt(hour.value) ? parseInt(hour.value).toString() : "0";
+            hour.value = parsedValue.padStart(2, "0");
+        });
+
+        min.addEventListener("focusout", () => {
+                const parsedValue = parseInt(min.value) ? parseInt(min.value).toString() : "0";
+                min.value = parsedValue.padStart(2, "0");
+            });
+
+        sec.addEventListener("focusout", () => {
+                const parsedValue = parseInt(sec.value) ? parseInt(sec.value).toString() : "0";
+                sec.value = parsedValue.padStart(2, "0");
+            });
+    </script>
+</body>
+</html>

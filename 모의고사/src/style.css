@@ -1,0 +1,17 @@
+body {
+  background: radial-gradient(
+    96.74% 276.79% at 3.59% 5.28%,
+    #f0f4ff 0%,
+    #a5b6ee 100%
+  );
+  background-attachment: fixed; /* 그라디언트 뷰포트 꽉차게 */
+}
+
+button {
+  cursor: pointer;
+}
+
+.disabled {
+  color: red;
+  pointer-events: none;
+}
