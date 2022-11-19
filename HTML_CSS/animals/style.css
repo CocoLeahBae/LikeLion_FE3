@@ -1,0 +1,49 @@
+
+h2,p {
+    margin: initial;
+    padding: initial;
+}
+
+body {
+    background-image: url("./images/bg.png");
+}
+
+.card1 {
+    margin: 30px;
+}
+
+.card_img{
+    display: block;
+    margin: auto;
+}
+
+.card_grass {
+    width: 100%;
+}
+
+.card2 {
+    margin:auto;
+    width: 300px;
+    height: 300px;
+    box-sizing: border-box;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #93572e;
+    box-shadow: 0 10px #4a260b;
+}
+
+.card_letter,
+.card_header {
+    color: white;
+}
+
+.card_header {
+    margin-bottom: 7px;
+    margin-left: 20px;
+    font-size: 33px;
+    font-weight: 800;
+}
+
+.animal-card-text {
+    padding: 0 24px 24px 24px;
+}

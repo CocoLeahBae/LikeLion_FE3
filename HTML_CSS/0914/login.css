@@ -1,0 +1,24 @@
+@import "reset.css";
+
+.log-in-area {
+border: 1px solid #DBDBDB;
+border-radius: 5px;
+box-sizing: border-box;
+position: absolute;
+width: 350px;
+height: 140px;
+background: #FFFFFF;
+
+}
+
+.welcome {
+position: absolute;
+width: 215px;
+height: 15px;
+left: 16px;
+top: 19px;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+color: #000000;
+}

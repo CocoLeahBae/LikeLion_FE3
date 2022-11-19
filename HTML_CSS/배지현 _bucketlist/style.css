@@ -1,0 +1,39 @@
+body {
+    background-color: #D9D9D9;
+}
+
+.container {
+background: #fff;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+border-radius: 30px;
+width: 401px;
+height: 452px;
+margin: 100px auto;
+}
+
+.bucket {
+background: #f2f2f2;
+width: 401px;
+border-top-left-radius: 30px;
+border-top-right-radius: 30px;
+text-align: left;
+padding: 55px 0;
+font-family: 'Gmarket Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 30px;
+color: #F2168F;
+border-bottom:solid 3px;
+border-color: #e1e1e1;
+}
+
+#ul-list ul li{
+    list-style: none;
+    padding-left: 0;
+    width: 332px;
+    height: 38px;
+    border: 3px;
+    border-color: #AAAAAA;
+}
+

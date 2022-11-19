@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transition Test</title>
+  <style>
+    body{
+        display: flex;
+    }
+    div{
+      width: 100px;
+      height: 100px;
+      background: red;
+      font: bold;
+      color: white;
+      margin-right: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .first{
+        transition-duration: 0s;
+    }
+    .second{
+        transition-duration: 1s;
+    }
+    .third{
+        transition-duration: 2s;
+    }
+    div:hover{
+        background: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="first">0초</div>
+  <div class="second">1초</div>
+  <div class="third">2초</div>
+</body>
+</html>
